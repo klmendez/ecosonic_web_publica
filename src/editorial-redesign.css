@@ -54,6 +54,33 @@
 .archConnections{position:absolute;z-index:0;left:28px;right:28px;top:35px;width:calc(100% - 56px);height:330px;pointer-events:none;overflow:visible}.archConnections path{fill:none;stroke:#37a994;stroke-width:2;stroke-linecap:round;opacity:.72;marker-end:url(#flowHead)}.archConnections marker path{fill:#158e79;stroke:none;opacity:1}.archConnections .inputFlow path:nth-child(2),.archConnections .featureFlow path:nth-child(2){stroke:#3f9fc3}.archConnections .inputFlow path:nth-child(3),.archConnections .featureFlow path:nth-child(3){stroke:#9a7bc4}.archConnections .inputFlow path:nth-child(4),.archConnections .featureFlow path:nth-child(4){stroke:#9dbb3e}.archConnections .fusionIn path{stroke-dasharray:5 5}.archConnections .outputFlow path{stroke:#15947f}.archConnections .outputFlow path:nth-child(3){stroke:#a9cf35;stroke-width:3}.archArrow{visibility:hidden}.archArrow:before{content:none!important}
 .archColumn{padding:8px 4px;border:0;border-radius:0;background:transparent!important;box-shadow:none}.archColumn>small{display:inline-block;margin:0 0 11px 7px;padding:5px 9px;border-radius:20px;background:#e4f2ee}.archNode{background:#fff;border:1px solid #d2e4df!important;box-shadow:0 6px 18px #173f480b}.archArrow{font-size:0;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center;color:#15927d;visibility:hidden}.archArrow:before{content:none!important}.architectureTools{border:0;background:transparent;padding-inline:0}.architectureTools>small{display:inline-block;padding:5px 9px;border-radius:20px;background:#e4f2ee}.architectureTools .archNode{box-shadow:0 5px 14px #173f480c}.architectureDialog{pointer-events:auto}
 @media(max-width:1000px){.archConnections{display:none}.archArrow{visibility:visible}.archArrow:before,.splitArrow:before{content:'↓ ↓ ↓'!important;white-space:normal;letter-spacing:10px;line-height:1}.archColumn{padding:5px 0}.archColumn>small{margin-top:8px}}
+@media(max-width:1000px){
+  .architecture{overflow:visible}
+  .architecture svg{min-width:0}
+  .architectureCanvas{overflow:visible}
+  .fullArchitecture{gap:3px}
+  .archArrow{height:26px;min-height:26px;transform:none}
+  .fusionCore svg,.territorialBranch svg{min-width:0}
+}
+@media(max-width:650px){
+  .architecture .compactHead h2{font-size:1.45rem;line-height:1.15}
+  .architecture .compactHead p{font-size:.78rem;line-height:1.5}
+  .architectureCanvas{padding:10px;background:linear-gradient(135deg,#f8fcfa,#edf6f3)}
+  .archColumn>small{font-size:.52rem}
+  .archNode{min-height:42px;margin:4px 0;padding:10px 8px!important}
+  .archNode b{font-size:.68rem}
+  .fusionCore{width:132px;padding:20px 10px}
+  .fusionCore svg{width:25px;height:25px}
+  .fusionCore>b{font-size:.78rem}
+  .architectureTools{padding:10px 0}
+  .architectureTools>div{gap:5px}
+  .architectureTools .archNode{min-height:40px;padding:8px 6px!important}
+  .territorialBranch{padding:11px 14px}
+  .architectureDialog{left:12px;right:12px;top:auto;bottom:12px;transform:none;width:auto;max-height:78svh;border-radius:18px;padding:22px 18px 18px}
+  .architectureDialog h3{font-size:1.05rem;padding-right:28px}
+  .architectureDialog p{font-size:.72rem}
+  @keyframes dialogIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
 @media(max-width:950px){.evaluationLead{grid-template-columns:1fr 1fr}.evaluationButton{justify-self:start}.evaluationTimeline{grid-template-columns:1fr 1fr;gap:22px}.evaluationTimeline>i{display:none}}
 @media(max-width:650px){.homeEvaluation{padding:38px 0}.evaluationLead{grid-template-columns:1fr;gap:14px}.evaluationLead h2{font-size:1.45rem}.evaluationTimeline{grid-template-columns:1fr}.evaluationStep{padding:0 0 18px;border-bottom:1px solid var(--line)}.stepMedia,.miniPrediction,.responsePreview{height:150px}.layerRail>div{padding:18px 14px}.layerRail svg{width:20px;margin-bottom:10px}.layerRail p{display:none}.homeQuestion{padding:38px 0}.questionGrid h2{font-size:1.45rem}}
 
