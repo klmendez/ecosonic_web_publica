@@ -206,3 +206,15 @@
   .decisionGroup{display:grid;grid-template-columns:1fr}
   .decisionGroup button{width:100%}
 }
+
+/* Evita que el documento completo se desplace lateralmente al emular un móvil. */
+@media(max-width:800px){
+  html,body,#root{width:100%;max-width:100%;overflow-x:clip}
+  header,main,footer,.pageHero,.section{width:100%;max-width:100%;overflow-x:clip}
+  .wrap{width:auto!important;max-width:calc(100% - 28px)!important;margin-inline:14px!important}
+  .nav{width:auto!important;max-width:calc(100% - 28px)!important;margin-inline:14px!important}
+  .explorerWorkspace,.explorerSidebar,.explorerContent,.explorerHeading,.explorerSteps,.mediaPair,.explorerCharts,.modelOutputs,.humanLoop,.explorerNote{box-sizing:border-box;max-width:100%}
+  .explorerSidebar select,.hbar,.barTrack,.outputMetrics,.decisionGroup,.confidenceScale{min-width:0;max-width:100%}
+  .explorerRecommendation,.placeContext p,.explorerHeading h2,.chartHeading h3,.chartHeading span,.outputIntro p,.humanLoop p{overflow-wrap:anywhere}
+  .menu{flex:0 0 auto}
+}
