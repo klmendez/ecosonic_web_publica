@@ -1,0 +1,10 @@
+import type{Environmental,Evidence,MapData,Prediction}from'./types';
+export type Available={key:string;point:number;period:string;minute:number};
+let envPromise:Promise<Environmental[]>|undefined,evidencePromise:Promise<Record<string,Evidence>>|undefined,predictionsPromise:Promise<Record<string,Prediction>>|undefined,availablePromise:Promise<Available[]>|undefined;
+const load=<T,>(path:string)=>fetch(path).then(r=>{if(!r.ok)throw Error(`No se pudo cargar ${path}`);return r.json() as Promise<T>});
+export const keyFor=(point:number,period:string,minute:number)=>`punto_${String(point).padStart(2,'0')}_${period}_${minute}min`;
+export const getEnvironmental=()=>envPromise??=load<Environmental[]>('/data/environmental.json');
+export const getEvidence=()=>evidencePromise??=load<Record<string,Evidence>>('/data/evidence.json');
+export const getPredictions=()=>predictionsPromise??=load<Record<string,Prediction>>('/data/predictions.json');
+export const getAvailable=()=>availablePromise??=load<Available[]>('/data/available.json');
+export const getMaps=()=>load<MapData>('/data/maps.json');
