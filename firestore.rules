@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /validaciones_human_in_the_loop/{responseId} {
+      allow create: if request.resource.data.keys().hasOnly(['point','period','minute','decision','predicted_amount','response_amount','confidence','place','study','version','created_at'])
+        && request.resource.data.point is int && request.resource.data.point >= 1 && request.resource.data.point <= 50
+        && request.resource.data.period in ['P1','P2','P3','P4','P5'] && request.resource.data.minute in [2,4,6,8,10]
+        && request.resource.data.decision in ['accept','reject','propose']
+        && request.resource.data.predicted_amount is number && request.resource.data.predicted_amount >= 0 && request.resource.data.predicted_amount <= 15000
+        && request.resource.data.response_amount is number && request.resource.data.response_amount >= 0 && request.resource.data.response_amount <= 10000000
+        && request.resource.data.confidence is int && request.resource.data.confidence >= 1 && request.resource.data.confidence <= 5
+        && request.resource.data.place is string && request.resource.data.place.size() <= 160
+        && request.resource.data.study == 'ecosonic_popayan' && request.resource.data.version == 'web_publica_1'
+        && request.resource.data.created_at == request.time;
+      allow read, update, delete: if false;
+    }
+  }
+}
